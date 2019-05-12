@@ -8,7 +8,7 @@ const ChooseOpQuestions = ({ onCreateQuestion, onListQuestions, onFilterQuestion
         <div class="d-inline-flex p-3 bg-secondary text-white">
             <button type="button" class="p-2 bg-info" onClick = {onCreateQuestion}>Ask Question</button>
             <button type="button" class="p-2 bg-warning" onClick = {onListQuestions}>List All Questions</button>
-            <button type="button" class="p-2 bg-primary" onClick = {onFilterQuestions }>Filter Questions</button>
+            <button type="button" class="p-2 bg-primary" onClick = {onFilterQuestions}>Filter Questions</button>
         </div>
     </div>
 );

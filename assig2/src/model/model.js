@@ -24,12 +24,14 @@ class Model extends EventEmitter {
                 author: "",
                 tag: ""
 
-            }
+            },
+            searchQuestions:{},
+            toSearch:""
         };
     }
 
 
-    addQuestion(titleQ,text,creationDate,author,tag) {
+    addQuestion(titleQ, text, creationDate, author, tag) {
         this.state = {
             ...this.state,
             questions: this.state.questions.concat([{
@@ -54,11 +56,28 @@ class Model extends EventEmitter {
         this.emit("change", this.state);
     }
 
+    changeToSearch(property, value) {
+        this.state = {
+            ...this.state,
+           [property]:value
+        };
+        this.emit("change", this.state);
+    }
+
+    findByTitle(){ 
+        debugger;
+        const result=this.state.questions.filter(post=>post.titleQ===this.state.toSearch)
+        this.state = {
+     ...this.state,
+     searchQuestions:result
+        };
+    }
+
     updateQuestions(questions) {
         this.state = {
             ...this.state,
-                questions: questions
-            }
+            questions: questions
+        }
         this.emit("change", this.state);
     }
 }

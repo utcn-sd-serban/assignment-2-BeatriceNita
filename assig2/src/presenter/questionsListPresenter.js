@@ -1,17 +1,27 @@
-
+import model from "../model/model";
 
 class QuestionsListPresenter {
-   onCreateQuestion(){
-    window.location.assign("#/create-question");
+   onCreateQuestion() {
+      window.location.assign("#/create-question");
    }
 
-   onListQuestions(){
-    window.location.assign("#/list-questions");
+   onListQuestions() {
+      window.location.assign("#/list-questions");
    }
 
-   onFilterQuestions(){
+   onFilterQuestions() {
       window.location.assign("#/filter-questions");
-     }  
+   }
+
+   onFilteredQuestions(){
+      model.findByTitle();
+      window.location.assign("#/filter-questions-yes");
+   }
+
+   changeToSearch(property, value){
+      model.changeToSearch(property, value);
+
+    }
 
 }
 

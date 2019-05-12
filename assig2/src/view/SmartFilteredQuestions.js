@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import model from "../model/model";
-import FilterQuestions from "./FilterQuestions";
-import questionsListPresenter from "../presenter/questionsListPresenter";
+import FilteredQuestions from "./FilteredQuestions";
 
 const mapModelStateToComponentState = modelState => ({
-   
+    searchQuestions:modelState.searchQuestions
 });
 
-export default class SmartFilterQuestions extends Component {
+export default class SmartFilteredQuestions extends Component {
     constructor() {
         super();
         this.state = mapModelStateToComponentState(model.state);
@@ -21,9 +20,8 @@ export default class SmartFilterQuestions extends Component {
 
     render() {
         return (
-            <FilterQuestions
-                onFilteredQuestions={questionsListPresenter.onFilteredQuestions}
-                onChangeToSearch={questionsListPresenter.changeToSearch} />
+            <FilteredQuestions
+            questions={this.state.searchQuestions}/>
         );
     }
 }
